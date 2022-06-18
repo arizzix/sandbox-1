@@ -14,5 +14,6 @@ jobs:
       - run: echo 'jobs>test>steps>run'
   build3:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - run: echo 'jobs>build3>steps>run'
