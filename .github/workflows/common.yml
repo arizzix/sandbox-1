@@ -1,0 +1,96 @@
+name: Common
+
+on:
+  workflow_call:
+    inputs:
+      key:
+        description: 'Name of the job in the configuration.'
+        required: true
+        type: string
+      submodules:
+        description: 'Whether to checkout submodules (false, true or recursive).'
+        required: false
+        default: false
+        type: string
+      skip-release:
+        description: 'Skip pushing and mirroring to container registries.'
+        required: false
+        default: false
+        type: string
+    secrets:
+      gcr_token:
+        description: 'Google Container Registry access token.'
+        required: false
+      gh_token:
+        description: 'GitHub Container Registry access token.'
+        required: false
+      docker_user:
+        description: 'Docker Container Registry user name.'
+        required: false
+      docker_pass:
+        description: 'Docker Container Registry password.'
+        required: false
+
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+
+
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+
+    - name: 🧰 Checkout
+      uses: actions/checkout@v3
+
+    - name: 🛠️ Setup
+      run: ./utils/setup.sh
+
+    - name: 🔧 Generate matrix
+      id: generate
+      run: pyHDLC jobs ${{ inputs.key }}
+
+
+  jobs:
+    needs: matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.matrix.outputs.matrix) }}
+
+    name: ${{ matrix.arch }}/${{ matrix.os }} | ${{ matrix.imgs }}
+    steps:
+
+    - name: 🧰 Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: ${{ inputs.submodules }}
+
+    - name: 🚧 Build, test and release
+      uses: ./utils/build-test-release
+      with:
+        gcr_token: '${{ secrets.gcr_token }}'
+        gh_token: '${{ github.token }}'
+        docker_user: '${{ secrets.docker_user }}'
+        docker_pass: '${{ secrets.docker_pass }}'
+        skip-release: ${{ inputs.skip-release }}
+        architecture: ${{ matrix.arch }}
+        collection: ${{ matrix.os }}
+        images: ${{ matrix.imgs }}
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
