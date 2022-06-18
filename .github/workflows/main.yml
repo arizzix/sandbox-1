@@ -2,13 +2,13 @@ name: Main
 
 on: [push]
 
-  strategy:
-    matrix:
-      project:
-        - siag
-        - ocs
-        - traefik1
-        - traefik2
+strategy:
+  matrix:
+    project:
+      - siag
+      - ocs
+      - traefik1
+      - traefik2
 jobs:
 #  build:
 #    uses: ./.github/workflows/build.yml
