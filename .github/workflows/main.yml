@@ -6,15 +6,15 @@ jobs:
 #  build:
 #    uses: ./.github/workflows/build.yml
 
+  strategy:
+    matrix:
+      include:
+        - site: "prod"
+          dc: "site-a"
+        - site: "stag"
+          dc: "site-b"
   release:
     #needs: build
-    strategy:
-      matrix:
-        include:
-          - site: "prod"
-            dc: "site-a"
-          - site: "stag"
-            dc: "site-b"
     uses: ./.github/workflows/release.yml
     with:
       project_name: ${{ matrix }}
