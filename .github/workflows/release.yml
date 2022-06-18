@@ -27,7 +27,7 @@ jobs:
 
     - name: Generate matrix
       id: generate
-      run: echo pyHDLC jobs ${{ inputs.project_name }}
+      run: echo ${{ inputs.project_name }}
 
 
   jobs:
