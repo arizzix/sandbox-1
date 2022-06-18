@@ -1,0 +1,36 @@
+# ./.github/workflows/build.yml
+
+name: build
+
+on:
+  # support calling this workflow from other workflows
+  # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#creating-a-reusable-workflow
+  workflow_call:
+  # support running this workflow on push events
+  # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
+  push:
+    # run this workflow when pushing any branch other than main
+    branches-ignore: main
+
+jobs:
+  build:
+    # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: ubuntu-latest
+    
+    # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps
+    steps:
+      # build steps go here
+      # - name: My first build step
+      #   …
+
+      - name: Upload artifact
+        # https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: <the name>
+          path: <the path>
+          # the artifact is only needed for the duration of the build-deploy workflow
+          # adapt to your needs
+          # https://github.com/actions/upload-artifact#retention-period
+          retention-days: 1
+
