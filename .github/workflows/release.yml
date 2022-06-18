@@ -27,6 +27,10 @@ jobs:
     - name: Generate matrix
       id: generate
       run: echo ${{ inputs.project_name }}.yml
+    - run: env
+    - run: set
+    - run: echo $GITHUB_ENV
+    - run: echo $GITHUB_ENV
 
 
   jobs:
