@@ -10,7 +10,7 @@ on:
   # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
   push:
     # run this workflow when pushing any branch other than main
-    branches-ignore: main
+    branches-ignore: cicd3
 
 jobs:
   build:
