@@ -15,8 +15,7 @@ jobs:
           - ocs
           - traefik1
           - traefik2
-
     uses: ./.github/workflows/release.yml
     with:
-      project_name: ${{ matrix }}
+      project_name: ${{ matrix.project }}
       skip-dev: false
