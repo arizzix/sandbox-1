@@ -2,18 +2,19 @@ name: Java CI (development)
 
 on: [push]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'jobs>build>steps>run'
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - run: echo 'jobs>test>steps>run'
-  build3:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - run: echo 'jobs>build3>steps>run'
+stages:
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo 'jobs>build>steps>run'
+    test:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - run: echo 'jobs>test>steps>run'
+    build3:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - run: echo 'jobs>build3>steps>run'
