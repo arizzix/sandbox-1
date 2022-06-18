@@ -9,18 +9,6 @@ jobs:
       project_name: build
       skip-dev: false
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'jobs>test>steps>run'
-
-  prep-releases:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'before call all dependencies matrix'
-
   release:
     needs: prep-releases
     uses: ./.github/workflows/release.yml

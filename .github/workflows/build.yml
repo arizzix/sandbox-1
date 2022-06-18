@@ -13,14 +13,10 @@ on:
         type: string
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'jobs>build>steps>run'
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'jobs>test>steps>run'
+      - run: echo 'Cache........'
+      - run: echo 'Checkout.....'
+      - run: echo 'Building.....'
+      - run: echo 'after script if master'
