@@ -26,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      concurrency: 2
       matrix:
         project:
           - siag
