@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'jobs>build>steps>run'
-  build2:
+  test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - run: echo 'jobs>build2>steps>run'
+      - run: echo 'jobs>test>steps>run'
   build3:
     runs-on: ubuntu-latest
     steps:
