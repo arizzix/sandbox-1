@@ -3,33 +3,16 @@ name: Common
 on:
   workflow_call:
     inputs:
-      key:
-        description: 'Name of the job in the configuration.'
+      project_name:
+        description: 'Porject name (required)'
         required: true
         type: string
-      submodules:
-        description: 'Whether to checkout submodules (false, true or recursive).'
+      skip-dev:
+        description: 'Skip dev'
         required: false
-        default: false
+        default: true
         type: string
-      skip-release:
-        description: 'Skip pushing and mirroring to container registries.'
-        required: false
-        default: false
-        type: string
-    secrets:
-      gcr_token:
-        description: 'Google Container Registry access token.'
-        required: false
-      gh_token:
-        description: 'GitHub Container Registry access token.'
-        required: false
-      docker_user:
-        description: 'Docker Container Registry user name.'
-        required: false
-      docker_pass:
-        description: 'Docker Container Registry password.'
-        required: false
+
 
 env:
   DOCKER_BUILDKIT: 1
