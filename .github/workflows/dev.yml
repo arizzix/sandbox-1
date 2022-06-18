@@ -26,8 +26,8 @@ jobs:
     # Lint
     - name: Lint
       run: |
-        LINT
+        echo LINT
     # Unit Test
     - name: Unit Test
       run: |
-        UNIT
+        echo UNIT
