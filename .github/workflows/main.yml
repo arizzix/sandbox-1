@@ -25,5 +25,5 @@ jobs:
     needs: prep-releases
     uses: ./.github/workflows/release.yml
     with:
-      key: build
-      skip-release: ${{ github.event_name == 'pull_request' }}
+      project_name: build
+      skip-dev: false
