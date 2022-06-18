@@ -28,13 +28,10 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - siag: name
+          - siag
           - ocs
           - traefik1
           - traefik2
-
     name: ${{ matrix.project }}/${{ matrix.project.siag.name }} | ${{ matrix.imgs }}
     steps:
-
-    - name: 🚧 Build, test and release
-      run: echo ./utils/build-test-release
+      - run: hostname || true
