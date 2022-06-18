@@ -50,14 +50,4 @@ jobs:
         submodules: ${{ inputs.submodules }}
 
     - name: 🚧 Build, test and release
-      run: ./utils/build-test-release
-      with:
-        gcr_token: '${{ secrets.gcr_token }}'
-        gh_token: '${{ github.token }}'
-        docker_user: '${{ secrets.docker_user }}'
-        docker_pass: '${{ secrets.docker_pass }}'
-        skip-release: ${{ inputs.skip-release }}
-        architecture: ${{ matrix.arch }}
-        collection: ${{ matrix.os }}
-        images: ${{ matrix.imgs }}
-
+      run: echo ./utils/build-test-release
