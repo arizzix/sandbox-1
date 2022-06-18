@@ -10,7 +10,7 @@ jobs:
       skip-dev: false
 
   release:
-    needs: prep-releases
+    needs: build
     uses: ./.github/workflows/release.yml
     with:
       project_name: build
