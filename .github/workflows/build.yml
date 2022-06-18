@@ -1,0 +1,57 @@
+name: Hello GitHub Actions
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello, World in GitHub Actions
+      run: echo 'Running fake build'
+    - run: echo 2
+    - run: echo 3
+    - run: echo 4
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo Releasing....
+    - run: echo '[ DONE ]'
+
+  rel1:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 5
+    - run: echo 6
+    - run: echo 7
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 5
+    - run: echo 6
+    - run: echo 7
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 5
+    - run: echo 6
+    - run: echo 7
+
+  job5:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 5
+    - run: echo 6
+    - run: echo 7
+
+  job7:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 5
+    - run: echo 6
+    - run: echo 7
+
