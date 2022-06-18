@@ -6,14 +6,6 @@ jobs:
 #  build:
 #    uses: ./.github/workflows/build.yml
 
-  strategy:
-    matrix:
-      project:
-        - siag
-        - ocs
-        - traefik1
-        - traefik2
-
   release:
     #needs: build
     uses: ./.github/workflows/release.yml

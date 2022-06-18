@@ -24,10 +24,10 @@ jobs:
     steps:
     - name: Setup
       run: echo ./utils/setup.sh
-
     - name: Generate matrix
       id: generate
       run: echo ${{ inputs.project_name }}.yml
+    - run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
 
 
   jobs:
@@ -36,7 +36,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ needs.matrix.outputs.matrix }}
+        project:
+          - siag
+          - ocs
+          - traefik1
+          - traefik2
 
     name: ${{ matrix.arch }}/${{ matrix.os }} | ${{ matrix.imgs }}
     steps:
