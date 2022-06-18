@@ -50,7 +50,7 @@ jobs:
         submodules: ${{ inputs.submodules }}
 
     - name: 🚧 Build, test and release
-      uses: ./utils/build-test-release
+      uses: echo ./utils/build-test-release $github.token
       with:
         gcr_token: '${{ secrets.gcr_token }}'
         gh_token: '${{ github.token }}'
