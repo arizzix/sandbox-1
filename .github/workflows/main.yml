@@ -23,7 +23,6 @@ jobs:
 
   release:
     needs: prep-releases
-    runs-on: ubuntu-latest
     uses: ./.github/workflows/release.yml
     with:
       key: build
