@@ -1,16 +1,6 @@
 name: Release
 on:
   workflow_call:
-    inputs:
-      project_name:
-        description: 'Porject name (required)'
-        required: true
-        type: string
-      skip-dev:
-        description: 'Skip dev'
-        required: false
-        default: true
-        type: string
 
 env:
   DOCKER_BUILDKIT: 1
