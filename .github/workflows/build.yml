@@ -1,8 +1,8 @@
 name: Build
-
+on:
   workflow_call:
     inputs:
-      project:
+      project_name:
         description: 'Porject name (required)'
         required: true
         type: string
