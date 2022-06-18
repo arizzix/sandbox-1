@@ -1,0 +1,35 @@
+name: Main
+
+on: [push]
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      key: build
+      skip-release: ${{ github.event_name == 'pull_request' }}
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'jobs>test>steps>run'
+
+  prep-releases:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'before call all dependencies matrix'
+
+  release:
+    needs: prep-releases
+    runs-on: ubuntu-latest
+    uses: ./.github/workflows/common.yml
+    with:
+      key: build
+      skip-release: ${{ github.event_name == 'pull_request' }}
+    secrets:
+      gcr_token: '${{ secrets.GCR_JSON_KEY }}'
+      gh_token: '${{ github.token }}'
+      docker_user: '${{ secrets.DOCKER_USER }}'
+      docker_pass: '${{ secrets.DOCKER_PASS }}'

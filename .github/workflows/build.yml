@@ -1,0 +1,26 @@
+name: Build
+
+  workflow_call:
+    inputs:
+      project:
+        description: 'Porject name (required)'
+        required: true
+        type: string
+      skip-dev:
+        description: 'Skip dev'
+        required: false
+        default: true
+        type: string
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'jobs>build>steps>run'
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'jobs>test>steps>run'
