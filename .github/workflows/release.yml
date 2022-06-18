@@ -42,7 +42,7 @@ jobs:
           - traefik1
           - traefik2
 
-    name: ${{ matrix.arch }}/${{ matrix.os }} | ${{ matrix.imgs }}
+    name: ${{ matrix.project }}/${{ matrix.os }} | ${{ matrix.imgs }}
     steps:
 
     - name: 🧰 Checkout
