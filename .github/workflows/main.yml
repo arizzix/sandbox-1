@@ -24,7 +24,7 @@ jobs:
   release:
     needs: prep-releases
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/common.yml
+    uses: ./.github/workflows/release.yml
     with:
       key: build
       skip-release: ${{ github.event_name == 'pull_request' }}
