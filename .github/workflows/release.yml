@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ needs.matrix.outputs.matrix }}
+        include: ${{ needs.matrix.outputs.matrix }}.yml
 
     name: ${{ matrix.arch }}/${{ matrix.os }} | ${{ matrix.imgs }}
     steps:
