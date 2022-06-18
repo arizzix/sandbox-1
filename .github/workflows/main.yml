@@ -13,5 +13,5 @@ jobs:
     #needs: build
     uses: ./.github/workflows/release.yml
     with:
-      project_name: MY_PROJECT_NAME
+      project_name: template
       skip-dev: false
