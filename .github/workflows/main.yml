@@ -2,17 +2,17 @@ name: Main
 
 on: [push]
 
+  strategy:
+    matrix:
+      project:
+        - siag
+        - ocs
+        - traefik1
+        - traefik2
 jobs:
 #  build:
 #    uses: ./.github/workflows/build.yml
 
-  strategy:
-    matrix:
-      include:
-        - site: "prod"
-          dc: "site-a"
-        - site: "stag"
-          dc: "site-b"
   release:
     #needs: build
     uses: ./.github/workflows/release.yml
