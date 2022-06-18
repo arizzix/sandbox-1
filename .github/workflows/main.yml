@@ -2,19 +2,20 @@ name: Main
 
 on: [push]
 
-strategy:
-  matrix:
-    project:
-      - siag
-      - ocs
-      - traefik1
-      - traefik2
 jobs:
 #  build:
 #    uses: ./.github/workflows/build.yml
 
   release:
     #needs: build
+    strategy:
+      matrix:
+        project:
+          - siag
+          - ocs
+          - traefik1
+          - traefik2
+
     uses: ./.github/workflows/release.yml
     with:
       project_name: ${{ matrix }}
