@@ -10,5 +10,5 @@ jobs:
     #needs: build
     uses: ./.github/workflows/release.yml
     with:
-      project_name: ['siag', 'ocs']
+      project_name: '["siag", "ocs"]'
       skip-dev: false
