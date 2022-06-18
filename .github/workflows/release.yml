@@ -27,7 +27,6 @@ jobs:
     - name: Generate matrix
       id: generate
       run: echo ${{ inputs.project_name }}.yml
-    - run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
 
 
   jobs:
@@ -38,11 +37,12 @@ jobs:
       matrix:
         project:
           - siag
+            name: SIAG
           - ocs
           - traefik1
           - traefik2
 
-    name: ${{ matrix.project }}/${{ matrix.os }} | ${{ matrix.imgs }}
+    name: ${{ matrix.project }}/${{ matrix.project.name }} | ${{ matrix.imgs }}
     steps:
 
     - name: 🧰 Checkout
