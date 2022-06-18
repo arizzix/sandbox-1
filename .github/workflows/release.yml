@@ -32,6 +32,26 @@ jobs:
           - ocs
           - traefik1
           - traefik2
+          - traefik21
+          - traefik22
+          - traefik23
+          - traefik24
+          - traefik25
+          - traefik26
+          - traefik27
+          - traefik28
+          - traefik29
+          - traefik20
+          - traefik31
+          - traefik32
+          - traefik33
+          - traefik34
+          - traefik35
+          - traefik36
+          - traefik37
+          - traefik38
+          - traefik39
+          - traefik30
     name: ${{ matrix.project }} Project
     steps:
       - run: hostname || true
