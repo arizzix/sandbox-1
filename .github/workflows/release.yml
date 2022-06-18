@@ -12,7 +12,6 @@ on:
         default: true
         type: string
 
-
 env:
   DOCKER_BUILDKIT: 1
 
@@ -31,7 +30,6 @@ jobs:
     - run: set
     - run: echo $GITHUB_ENV
     - run: echo $GITHUB_ENV
-
 
   jobs:
     needs: matrix
