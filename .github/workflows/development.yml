@@ -14,7 +14,7 @@ jobs:
     steps:
       - run: echo 'jobs>test>steps>run'
 
-  pre-prelease:
+  prep-releases:
     needs: test
     runs-on: ubuntu-latest
     steps:
