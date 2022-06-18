@@ -33,7 +33,7 @@ jobs:
           - traefik1
           - traefik2
 
-    name: ${{ matrix.project }}/${{ matrix.siag.name }} | ${{ matrix.imgs }}
+    name: ${{ matrix.project }}/${{ matrix.project.siag.name }} | ${{ matrix.imgs }}
     steps:
 
     - name: 🚧 Build, test and release
