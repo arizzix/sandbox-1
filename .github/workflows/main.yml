@@ -8,7 +8,14 @@ jobs:
 
   release:
     #needs: build
+    strategy:
+      matrix:
+        include:
+          - site: "prod"
+            dc: "site-a"
+          - site: "stag"
+            dc: "site-b"
     uses: ./.github/workflows/release.yml
     with:
-      project_name: '["siag", "ocs"]'
+      project_name: ${{ matrix }}
       skip-dev: false
