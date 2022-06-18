@@ -1,22 +1,22 @@
-name: 'a1'
+name: 'build'
 
 on:
   pull_request:
   push:
-  schedule:
-    - cron: '0 0 * * 5'
+#  schedule:
+#    - cron: '0 0 * * 5'
   workflow_dispatch:
   repository_dispatch:
-    types: [ a1 ]
+    types: [ build ]
 
 env:
   DOCKER_BUILDKIT: 1
 
 jobs:
-  a1:
+  build:
     uses: ./.github/workflows/common.yml
     with:
-      key: a1
+      key: build
       skip-release: ${{ github.event_name == 'pull_request' }}
     secrets:
       gcr_token: '${{ secrets.GCR_JSON_KEY }}'
