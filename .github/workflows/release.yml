@@ -32,6 +32,6 @@ jobs:
           - ocs
           - traefik1
           - traefik2
-    name: ${{ matrix.project }}/${{ matrix.project.siag.name }} | ${{ matrix.imgs }}
+    name: ${{ matrix.project }} Project
     steps:
       - run: hostname || true
