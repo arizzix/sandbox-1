@@ -4,10 +4,14 @@ on: [push]
 
 jobs:
 
-  hello:
-
+  job1:
     runs-on: ubuntu-latest
-
     steps:
     - name: Hello, World in GitHub Actions
       run: echo 'Hello, World'
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello again in GitHub Actions
+      run: echo 'Hello again'
