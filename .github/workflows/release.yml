@@ -27,7 +27,7 @@ jobs:
 
     - name: Generate matrix
       id: generate
-      run: echo ${{ inputs.project_name }}
+      run: echo ${{ inputs.project_name }}.yml
 
 
   jobs:
@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: "${{ needs.matrix.outputs.matrix }}.yml"
+        include: ${{ needs.matrix.outputs.matrix }}
 
     name: ${{ matrix.arch }}/${{ matrix.os }} | ${{ matrix.imgs }}
     steps:
