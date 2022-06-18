@@ -36,8 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - siag
-            name: SIAG
+          - siag: name
           - ocs
           - traefik1
           - traefik2
