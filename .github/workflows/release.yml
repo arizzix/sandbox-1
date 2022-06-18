@@ -45,13 +45,8 @@ jobs:
           - traefik1
           - traefik2
 
-    name: ${{ matrix.project }}/${{ matrix.project.name }} | ${{ matrix.imgs }}
+    name: ${{ matrix.project }}/${{ matrix.siag.name }} | ${{ matrix.imgs }}
     steps:
-
-    - name: 🧰 Checkout
-      uses: actions/checkout@v3
-      with:
-        submodules: ${{ inputs.submodules }}
 
     - name: 🚧 Build, test and release
       run: echo ./utils/build-test-release

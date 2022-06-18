@@ -9,6 +9,3 @@ jobs:
   release:
     #needs: build
     uses: ./.github/workflows/release.yml
-    with:
-      project_name: ${{ matrix.project }}
-      skip-dev: false
