@@ -6,7 +6,7 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
     with:
-      key: build
+      project_name: build
       skip-release: ${{ github.event_name == 'pull_request' }}
 
   test:
