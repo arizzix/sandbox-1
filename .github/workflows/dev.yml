@@ -7,20 +7,9 @@ on:
     paths-ignore:
     - 'README.md'
 
-# Environment variables available to all jobs and steps in this workflow
-env:
-  PROJECT: medium
-  GKE_ZONE: us-west2
-  GKE_CLUSTER: meidum
-  NAMESPACE: development
-  ENV: dev
-  #GITHUB_SHA: ${{ github.sha }}
-  REGISTRY_HOSTNAME: gcr.io
-  SERVICE_NAME: mediumpod
-
 jobs:
   pull_request_workflow:
-    name: Deploy DEV - Pull Request to development
+    name: 
     runs-on: ubuntu-18.04
     steps:
 
