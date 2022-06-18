@@ -33,10 +33,6 @@ jobs:
       run: |
         DOCKER_BUILDKIT=1 docker build \
           --build-arg BUILDKIT_INLINE_CACHE=1 \
-          --cache-from $REGISTRY_HOSTNAME/$ADMIN_PROJECT/$SERVICE_NAME:$ENV-latest \
-          -t $REGISTRY_HOSTNAME/$ADMIN_PROJECT/$SERVICE_NAME:$ENV-$GITHUB_SHA \
-          -t $REGISTRY_HOSTNAME/$ADMIN_PROJECT/$SERVICE_NAME:$ENV-latest \
-          -t $REGISTRY_HOSTNAME/$ADMIN_PROJECT/$SERVICE_NAME:$ENV-$GITHUB_RUN_NUMBER \
           .
     # Lint
     - name: Lint
