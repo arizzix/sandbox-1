@@ -3,8 +3,8 @@ name: Main
 on: [push]
 
 jobs:
-#  build:
-#    uses: ./.github/workflows/build.yml
+  build:
+    uses: ./.github/workflows/build.yml
 
   release:
     #needs: build
