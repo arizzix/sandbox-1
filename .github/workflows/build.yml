@@ -21,3 +21,4 @@ jobs:
       - run: echo 'Checkout.....'
       - run: echo 'Building.....'
       - run: echo 'after script if master'
+      - run: echo {{ secret.MY_SEC }}
