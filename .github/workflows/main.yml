@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/build.yml
+      - id: build
+        uses: ./.github/workflows/build.yml
       - run: echo {{ $secrets.MY_SEC }}
 
   release:
