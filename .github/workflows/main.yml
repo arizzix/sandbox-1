@@ -1,0 +1,20 @@
+name: Main workflow
+
+on: [push]
+
+env:
+  main1: "main1"
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      my_var: my_var_123
+    secrets:
+      token: "${{ secrets.MY_SEC }}"
+
+  release:
+    needs: build
+    uses: ./.github/workflows/release.yml
+    secrets:
+      token: "${{ secrets.MY_SEC }}"

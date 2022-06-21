@@ -1,0 +1,43 @@
+name: Release
+on:
+  workflow_call:
+    secrets:
+      token:
+        description: 'Generic description'
+        required: true
+
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  matrix:
+    name: 'Preparing releases'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+    - name: Setup
+      run: echo ./utils/setup.sh
+    - name: Generate matrix
+      id: generate
+      run: echo ${{ inputs.project_name }}.yml
+    - run: env
+    - run: set
+    - run: echo $GITHUB_ENV
+    - run: echo $GITHUB_ENV
+    - run: echo "${{ secrets.token }}"
+
+  jobs:
+    name: ${{ matrix.project }} Project
+    needs: matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      #concurrency: 2
+      matrix:
+        project:
+          - dev
+          - sanbox
+    steps:
+      - run: hostname || true
+      - run: echo "secret ${{ secrets.token }}"

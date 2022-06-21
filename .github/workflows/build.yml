@@ -1,0 +1,19 @@
+name: Build
+on:
+  workflow_call:
+    inputs:
+      my_var:
+        description: 'My VAR'
+        required: false
+        type: string
+    secrets: 
+      token:
+        description: 'A required token from secrets'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ secrets.token }}
+      - run: echo ${{ inputs.my_var }}
