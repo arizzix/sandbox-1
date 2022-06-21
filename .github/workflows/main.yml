@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     uses: ./.github/workflows/build.yml
+    with:
+      my_sec: ${{ secrets.MY_SEC }}
 
   release:
     needs: build
