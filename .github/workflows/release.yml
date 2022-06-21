@@ -38,6 +38,8 @@ jobs:
         project:
           - dev
           - sanbox
+    env:
+      my_token: ${{ secrets.token }}
     steps:
       - run: hostname || true
-      - run: echo "secret ${{ secrets.token }}"
+      - run: echo "secret ${{ env.my_token }}"
