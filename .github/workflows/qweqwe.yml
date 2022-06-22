@@ -1,0 +1,10 @@
+name: newnew (new branck)
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo Hello new branch
